@@ -24,7 +24,7 @@ typedef struct s_param
 	int	minus;
 	int	zero;
 	int point;
-	int star;
+	int point_size;
 	int	width;
 	int error;
 
@@ -36,7 +36,7 @@ int		is_precision(const char c);
 int		is_digit(const char c);
 int		is_check(const char c);
 void	format(const char *s, va_list arg);
-int handle_main(t_param *param, const char *str, int pos);
+int handle_main(t_param *param, const char **s);
 int	check_reverse(t_param *param, char const *str,int pos);
 
 

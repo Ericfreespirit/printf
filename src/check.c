@@ -36,7 +36,7 @@ int	is_precision(const char c)
 
 int	is_digit(const char c)
 {
-	if (c >= '0' && c <= '9')
+	if (c >= '1' && c <= '9')
 		return (1);
 	return (0);
 }

@@ -35,8 +35,19 @@ int handle_conv(t_param *param, char c)
 	return (1);
 }
 
-int handle_main(t_param *param, char const *str,int pos)
+int handle_main(t_param *param, char const **s)
 {
-	// Fill param
-	return (1);
+	(void)param;
+	while(**s && is_check(**s))
+	{
+		if (**s == '-')
+			param->minus = 1;
+		if (is_conv(**s))
+		{
+			(*s)++;
+			return(1);
+		}
+		(*s)++;
+	}
+	return (0);
 }

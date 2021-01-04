@@ -19,20 +19,18 @@ void print_struct(t_param param)
 	printf("minus = %d\n", param.minus);
 	printf("zero = %d\n", param.zero);
 	printf("point = %d\n", param.point);
-	printf("star = %d\n", param.star);
 	printf("width = %d\n", param.width);	
 }
 
 t_param	param_default()
 {
 	t_param init_param;
-
+// TODO malloc protection
 	init_param = (t_param) {
 		.conv = '0',
 		.minus = 0,
 		.zero = 0,
 		.point = 0,
-		.star = 0,
 		.width = 0,
 		.error = 0,
 	};
@@ -41,43 +39,28 @@ t_param	param_default()
 
 void	format(const char *s, va_list arg)
 {
-	int		i;
 	t_param param;
-
 	(void)arg;
-	i = 0;
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] == '%')
+		if (*s == '%')
 		{
-			i++;
-			// If double %
-			if (s[i] == '%')
+			s++;
+			if (*s != '\0' && is_check(*s))
 			{
-				write(1,"%",1);
-				i++;
-			}
-			if (s[i] != '\0' && is_check(s[i]))
 				param = param_default();
-			while (s[i] && is_check(s[i]))
-			{
-				handle_main(&param, s, i);
-				/*
-				if (is_conv)
-					display space;
-					break it
-				*/
-				i++;
-			}			
+				handle_main(&param, &s);
+			}
+			print_struct(param);
 		}
-		if (s[i] != '%')
+		if (*s != '%')
 		{
 			/*
 				if(something in struct)
 					display space;
 			*/
-			write(1, &s[i], 1);
-			i++;
+			write(1, s, 1);
 		}
+		s++;
 	}
 }
