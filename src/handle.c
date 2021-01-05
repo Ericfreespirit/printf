@@ -35,19 +35,62 @@ int handle_conv(t_param *param, char c)
 	return (1);
 }
 
-int handle_main(t_param *param, char const **s)
+void handle_precision(t_param *param, char const **s, va_list arg)
 {
-	(void)param;
-	while(**s && is_check(**s))
-	{
-		if (**s == '-')
-			param->minus = 1;
-		if (is_conv(**s))
+	(*s)++;
+		if (**s == '*')
 		{
+			param->point = (int) va_arg(arg,int);
 			(*s)++;
-			return(1);
 		}
+		else if (is_digit(**s))
+		{
+			while(**s && is_digit(**s))
+			{
+				param->point *= 10;
+				param->point += (**s - '0');
+				(*s)++;
+			}
+		}
+}
+
+void handle_width(t_param *param, char const **s)
+{
+	while(**s && is_digit(**s))
+	{
+		param->width *= 10;
+		param->width += (**s - '0');
 		(*s)++;
 	}
-	return (0);
+}
+
+void handle_main(t_param *param, char const **s, va_list arg)
+{
+	while(**s && is_check(**s))
+	{
+		if(**s == '-')
+			param->minus = 1;
+		else if(**s == '0')
+			param->zero = 1;
+		else if(is_digit(**s))
+			handle_width(param, s);
+		else if(**s == '*')
+			param->width = (int) va_arg(arg,int);
+		else if(**s == '.')
+			handle_precision(param, s, arg);
+		if (is_conv(**s))
+		{
+				handle_conv(param, **s);
+				(*s)++;
+				return ;
+		}
+		else if(**s == '%')
+		{
+			param->conv = '%';
+			(*s)++;
+			return ;
+		}
+		if (**s != '\0' && is_check(**s))
+			(*s)++;
+	}
 }

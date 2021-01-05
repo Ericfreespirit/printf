@@ -40,7 +40,7 @@ t_param	param_default()
 void	format(const char *s, va_list arg)
 {
 	t_param param;
-	(void)arg;
+
 	while (*s)
 	{
 		if (*s == '%')
@@ -49,18 +49,13 @@ void	format(const char *s, va_list arg)
 			if (*s != '\0' && is_check(*s))
 			{
 				param = param_default();
-				handle_main(&param, &s);
+				handle_main(&param, &s, arg);
+				print_param(&param, arg);
 			}
 			print_struct(param);
 		}
 		if (*s != '%')
-		{
-			/*
-				if(something in struct)
-					display space;
-			*/
 			write(1, s, 1);
-		}
 		s++;
 	}
 }
