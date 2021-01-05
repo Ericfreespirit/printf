@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 22:45:11 by eriling           #+#    #+#             */
-/*   Updated: 2020/12/30 21:01:28 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/05 12:58:49 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int		is_digit(const char c);
 int		is_check(const char c);
 void	format(const char *s, va_list arg);
 void	handle_main(t_param *param, const char **s, va_list arg);
+void	print_param(t_param *param, va_list arg);
 
 #endif
