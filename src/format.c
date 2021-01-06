@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 19:11:56 by eriling           #+#    #+#             */
-/*   Updated: 2020/12/30 11:13:27 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/06 09:06:52 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ void	format(const char *s, va_list arg)
 				handle_main(&param, &s, arg);
 				print_param(&param, arg);
 			}
+			printf("\n");
 			print_struct(param);
+			
 		}
 		if (*s != '%')
 			write(1, s, 1);

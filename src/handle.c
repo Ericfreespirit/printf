@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 16:40:04 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/03 16:48:17 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/06 11:43:19 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ void handle_precision(t_param *param, char const **s, va_list arg)
 				(*s)++;
 			}
 		}
+		else 
+			param->point = 1;
+		
 }
 
 void handle_width(t_param *param, char const **s)
