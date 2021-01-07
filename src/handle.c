@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 16:40:04 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/06 11:43:19 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/07 11:10:12 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ void handle_precision(t_param *param, char const **s, va_list arg)
 	(*s)++;
 		if (**s == '*')
 		{
-			param->point = (int) va_arg(arg,int);
+			param->point = (int) va_arg(arg, int);
+			if (param->point < 0) 
+				param->point = -1;
 			(*s)++;
 		}
 		else if (is_digit(**s))
@@ -53,7 +55,7 @@ void handle_precision(t_param *param, char const **s, va_list arg)
 			}
 		}
 		else 
-			param->point = 1;
+			param->point = -1;
 		
 }
 
@@ -70,17 +72,30 @@ void handle_width(t_param *param, char const **s)
 void handle_main(t_param *param, char const **s, va_list arg)
 {
 	while(**s && is_check(**s))
-	{
+	{		
 		if(**s == '-')
 			param->minus = 1;
 		else if(**s == '0')
 			param->zero = 1;
 		else if(is_digit(**s))
+		{
 			handle_width(param, s);
+		//	printf("%d\n",param->width);
+		}	
 		else if(**s == '*')
+		{
 			param->width = (int) va_arg(arg,int);
-		else if(**s == '.')
+			if (param->width < 0)
+			{
+				param->width = (int)va_arg(arg, int) * -1;
+				param->minus = 1;
+			}
+		}
+		if(**s == '.')
+		{
 			handle_precision(param, s, arg);
+			//printf("%c\n", **s);
+		}
 		if (is_conv(**s))
 		{
 				handle_conv(param, **s);
