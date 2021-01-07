@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 10:19:39 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/07 12:04:03 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/07 12:53:50 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,21 @@ void print_space(int nb, char c)
 	}
 }
 
+int	clean_int(int nb)
+{
+
+}
+
 
 void 	parse_int(t_param *param, va_list arg)
 {
 	int	int_arg;
 	int int_len;
 	int space;
+
 	
 	int_arg = (int) va_arg(arg, int);
+	int_arg = clean_int(int_arg);
 	int_len = len_int_arg(int_arg);
 	
 	space = param->width - int_len;
