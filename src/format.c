@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 19:11:56 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/07 10:13:15 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/08 09:57:30 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void print_struct(t_param param)
 {
-	printf("== Struct param ==\n");
+	printf("\n== Struct param ==\n");
 	printf("conv = %c\n", param.conv);
 	printf("minus = %d\n", param.minus);
 	printf("zero = %d\n", param.zero);
@@ -50,11 +50,9 @@ void	format(const char *s, va_list arg)
 			{
 				param = param_default();
 				handle_main(&param, &s, arg);
-				conversion(&param, arg);
+			  conversion(&param, arg);
 			}
-			printf("\n");
-			print_struct(param);
-			
+		//	print_struct(param);
 		}
 		if (*s != '%')
 			write(1, s, 1);

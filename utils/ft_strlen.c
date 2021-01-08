@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 16:24:36 by eriling           #+#    #+#             */
-/*   Updated: 2020/11/02 16:37:53 by eriling          ###   ########.fr       */
+/*   Created: 2021/01/08 08:34:03 by eriling           #+#    #+#             */
+/*   Updated: 2021/01/08 08:35:09 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int	ft_strlen(char *s)
 {
-	t_list	*curr;
-	t_list	*tmp;
+	int	i;
 
-	curr = NULL;
-	if (lst && *lst && del)
-	{
-		curr = *lst;
-		while (curr)
-		{
-			tmp = curr;
-			curr = curr->next;
-			ft_lstdelone(tmp, del);
-		}
-		*lst = NULL;
-	}
+	i = 0;
+	while(s[i])
+		i++;
+	return(i);
 }

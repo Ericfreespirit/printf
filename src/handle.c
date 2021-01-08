@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 16:40:04 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/07 11:10:12 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/08 09:50:02 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,17 @@ void handle_width(t_param *param, char const **s)
 	}
 }
 
+
+
 void handle_main(t_param *param, char const **s, va_list arg)
 {
+	(void)param;
+	(void)s;
+	(void)arg;
+	
 	while(**s && is_check(**s))
 	{		
+		
 		if(**s == '-')
 			param->minus = 1;
 		else if(**s == '0')
@@ -80,7 +87,6 @@ void handle_main(t_param *param, char const **s, va_list arg)
 		else if(is_digit(**s))
 		{
 			handle_width(param, s);
-		//	printf("%d\n",param->width);
 		}	
 		else if(**s == '*')
 		{
@@ -91,16 +97,20 @@ void handle_main(t_param *param, char const **s, va_list arg)
 				param->minus = 1;
 			}
 		}
+		
+		
+	
 		if(**s == '.')
 		{
 			handle_precision(param, s, arg);
-			//printf("%c\n", **s);
 		}
+		
+		
 		if (is_conv(**s))
 		{
-				handle_conv(param, **s);
-				(*s)++;
-				return ;
+			handle_conv(param, **s);
+			(*s)++;
+			return ;
 		}
 		else if(**s == '%')
 		{
@@ -108,7 +118,9 @@ void handle_main(t_param *param, char const **s, va_list arg)
 			(*s)++;
 			return ;
 		}
-		if (**s != '\0' && is_check(**s))
+		
+		if (**s != '\0' && is_check(**s))	
 			(*s)++;
 	}
+	
 }
