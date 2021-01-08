@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 16:40:04 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/08 09:50:02 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/08 10:20:12 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void handle_main(t_param *param, char const **s, va_list arg)
 			param->width = (int) va_arg(arg,int);
 			if (param->width < 0)
 			{
-				param->width = (int)va_arg(arg, int) * -1;
+				param->width *= -1;
 				param->minus = 1;
 			}
 		}
