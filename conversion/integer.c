@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 10:19:39 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/08 12:14:20 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/08 12:48:38 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ void 	parse_int(t_param *param, va_list arg)
 				if (zero_precision > 0)
 				{
 					print_space(zero_precision, '0');
-					
+					ft_putstr(res);
+					space -= zero_precision;
+					print_space(space, ' ');
 				}
 				else
 				{
@@ -52,10 +54,12 @@ void 	parse_int(t_param *param, va_list arg)
 			}
 			else if (param->minus == 0)
 			{
-				
+				space -= zero_precision;
+				print_space(space, ' ');
+				print_space(zero_precision, '0');
+				ft_putstr(res);
 			}
 	}
-	
 	
 	if (param->minus == 1)
 	{
@@ -69,9 +73,10 @@ void 	parse_int(t_param *param, va_list arg)
 		ft_putstr(res);
 		return;
 	}
-
-
-	//print_space(space, ' ');
-	//ft_putstr(res);
+	else
+	{
+		print_space(space, ' ');
+		ft_putstr(res);
+	}
 	
 }

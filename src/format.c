@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 19:11:56 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/08 10:15:23 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/08 12:38:38 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void print_struct(t_param param)
 {
-	printf("\n== Struct param ==\n");
+	printf("== Struct param ==\n");
 	printf("conv = %c\n", param.conv);
 	printf("minus = %d\n", param.minus);
 	printf("zero = %d\n", param.zero);
