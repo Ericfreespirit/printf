@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 19:11:56 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/11 08:40:19 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/11 14:24:54 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,18 @@ t_param	param_default()
 	return (init_param);
 }
 
-void	format(const char *s, va_list arg)
+t_param_len	param_count()
+{
+	t_param_len param_len;
+// TODO malloc protection
+	param_len = (t_param_len) {
+		.len = 0,
+	};
+	return (param_len);
+}
+
+
+void	format(const char *s, va_list arg, t_param_len *len_printf)
 {
 	t_param param;
 
@@ -50,12 +61,13 @@ void	format(const char *s, va_list arg)
 			{
 				param = param_default();
 				handle_main(&param, &s, arg);
-			  conversion(&param, arg);
+			  conversion(&param, arg, len_printf);
 			}
-			print_struct(param);
 		}
-		if (*s != '%')
-			write(1, s, 1);
+		if (*s != '\0' && *s != '%')
+			len_printf->len += write(1, s, 1);
+
+		if (*s != '\0')
 		s++;
 	}
 }

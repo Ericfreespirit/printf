@@ -6,18 +6,20 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 19:22:13 by eriling           #+#    #+#             */
-/*   Updated: 2020/12/15 22:49:16 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/11 14:24:30 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "./include/printf.h"
 
 int	ft_printf(const char *s, ...)
 {
 	va_list lst_arg;
+	t_param_len len_printf;
 
+	len_printf = param_count();
 	va_start(lst_arg, s);
-	format(s, lst_arg);
+	format(s, lst_arg, &len_printf);
 	va_end(lst_arg);
-	return (1);// nb elements printed
+	return (len_printf.len);
 }
