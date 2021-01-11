@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 16:40:04 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/08 10:20:12 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/11 15:20:31 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,7 @@ void handle_width(t_param *param, char const **s)
 
 void handle_main(t_param *param, char const **s, va_list arg)
 {
-	(void)param;
-	(void)s;
-	(void)arg;
-	
+
 	while(**s && is_check(**s))
 	{		
 		

@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 22:45:11 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/11 14:31:09 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/11 15:26:34 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char	*ft_itoa(int nbr);
 void ft_putstr(char *s,t_param_len *len_printf);
 int	ft_strlen(char *s);
 t_param_len	param_count();
+char	*ft_strstr(char *str, char *to_find);
 
 
 

@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 10:19:39 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/11 14:31:11 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/11 15:48:02 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,18 @@ void 	parse_int(t_param *param, va_list arg, t_param_len *len_printf)
 	res = ft_itoa((int)va_arg(arg, int));
 	len = ft_strlen(res);
 	space = param->width - len;
-		
+	
 	if (param->point > 0)
 	{
 			zero_precision = param->point - len;
+
+			//if (res == 0)
+				//return;
+
 			if (param->minus == 1)
 			{
 				if (zero_precision > 0)
-				{
+				{						
 					print_space(zero_precision, '0',len_printf);
 					ft_putstr(res,len_printf);
 					space -= zero_precision;
@@ -57,6 +61,7 @@ void 	parse_int(t_param *param, va_list arg, t_param_len *len_printf)
 				print_space(space, ' ',len_printf);
 				print_space(zero_precision, '0',len_printf);
 				ft_putstr(res,len_printf);
+				return;
 			}
 	}
 	
@@ -77,5 +82,4 @@ void 	parse_int(t_param *param, va_list arg, t_param_len *len_printf)
 		print_space(space, ' ',len_printf);
 		ft_putstr(res,len_printf);
 	}
-	
 }
