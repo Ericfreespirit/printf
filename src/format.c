@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 19:11:56 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/12 11:16:32 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/13 09:33:16 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_param	param_default()
 		.conv = '0',
 		.minus = 0,
 		.zero = 0,
-		.point = 0,
+		.point = -1,
 		.width = 0,
 		.error = 0,
 	};
