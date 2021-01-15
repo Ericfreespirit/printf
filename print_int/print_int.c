@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 10:19:39 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/15 15:40:37 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/15 15:44:48 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void 	print_int(t_param *param, va_list arg, t_param_len *len_printf)
 	int space;
 	int	zero_precision;
 
+	//TODO create a function for init (use pointer)
 	res = ft_itoa((int)va_arg(arg, int));
 	len = ft_strlen(res);
 	space = (len > param->width) ? 0 : param->width - len;
