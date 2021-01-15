@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 22:45:11 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/15 14:57:30 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/15 15:37:40 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ int	ft_strlen(char *s);
 t_param_len	param_count();
 char	*ft_strstr(char *str, char *to_find);
 int		ft_strcmp(char *s1, char *s2);
+void	precision_is_positive(int zero_precision, int space, char *res, t_param_len *len_printf, t_param *param);
+void res_is_neg(int zero_precision, int space, char *res, t_param_len *len_printf, t_param *param);
+void print_space(int nb, char c, t_param_len *len_printf);
+void res_is_blank(int space, t_param_len *len_printf, t_param *param);
+void is_else(int space, char *res, t_param_len *len_printf, t_param *param);
+
 void print_struct(t_param param); // delete
 
 
