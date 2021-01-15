@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 16:40:04 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/13 13:23:24 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/15 13:48:17 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,15 @@ void handle_precision(t_param *param, char const **s, va_list arg)
 				param->point = 0;
 				return;
 			}
-			while(**s && is_digit(**s))
+			else
 			{
-				param->point *= 10;
-				param->point += (**s - '0');
-				(*s)++;
+				param->point = 0;
+				while(**s && is_digit(**s))
+				{
+					param->point *= 10;
+					param->point += (**s - '0');
+					(*s)++;
+				}
 			}
 		}
 		else
