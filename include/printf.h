@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 22:45:11 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/12 09:04:57 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/15 09:11:28 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ int	ft_strlen(char *s);
 t_param_len	param_count();
 char	*ft_strstr(char *str, char *to_find);
 int		ft_strcmp(char *s1, char *s2);
+void print_struct(t_param param); // delete
+
 
 #endif
