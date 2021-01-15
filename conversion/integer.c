@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 10:19:39 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/15 09:22:03 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/15 09:39:03 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,23 @@ void 	parse_int(t_param *param, va_list arg, t_param_len *len_printf)
 	space = (len > param->width) ? 0 : param->width - len;
 	zero_precision = (len > param->point) ? 0 : param->point - len;
 
+	//print_struct(*param);
 	if (res[0] == '-' && (param->point >= len || (param->width > len && param->zero == 1)))
 	{
-		if (param->minus == 1)
+		if (param->point < len)
+		{
+			if (param->minus == 1)
+			{
+				ft_putstr(res, len_printf);
+				print_space(space, ' ',len_printf);
+			}
+			else if (param->minus == 0)
+			{
+				print_space(space, ' ',len_printf);
+				ft_putstr(res, len_printf);
+			}
+		}
+		else if (param->minus == 1)
 		{
 			len_printf->len += write(1,"-",1);
 			print_space(zero_precision+1, '0',len_printf);
@@ -75,7 +89,7 @@ void 	parse_int(t_param *param, va_list arg, t_param_len *len_printf)
 		}
 		else if(param->minus == 0)
 		{
-
+			//printf("hello\n");
 			print_space(space-1, ' ',len_printf);
 			len_printf->len += write(1,"-",1);
 			print_space(zero_precision+1, '0',len_printf);
