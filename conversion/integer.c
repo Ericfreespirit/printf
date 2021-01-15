@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 10:19:39 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/15 09:55:18 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/15 12:19:39 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void 	parse_int(t_param *param, va_list arg, t_param_len *len_printf)
 	if (res[0] == '-' && (param->point >= len || (param->width > len && param->zero == 1)))
 	{
 		//print_struct(*param);
-		if (param->point < len && param->point != -1)
+		if (param->point < len && param->point >= 0)
 		{
 			if (param->minus == 1)
 			{
