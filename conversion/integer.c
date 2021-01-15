@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 10:19:39 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/15 12:19:39 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/15 13:17:42 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,11 @@ void 	parse_int(t_param *param, va_list arg, t_param_len *len_printf)
 
 	if (param->zero == 1 && param->minus == 1)
 		param->zero = 0;
-		
+	
+	
+	//print_struct(*param);
 	if (res[0] == '-' && (param->point >= len || (param->width > len && param->zero == 1)))
 	{
-		//print_struct(*param);
 		if (param->point < len && param->point >= 0)
 		{
 			if (param->minus == 1)
@@ -99,11 +100,13 @@ void 	parse_int(t_param *param, va_list arg, t_param_len *len_printf)
 			return;
 		}
 	}
+	
 	else if (param->point > 0)
 	{
 	  precision_positive(zero_precision, space, res, len_printf, param);
 		return;
 	}
+	
 	else if (param->point == 0 && ft_strcmp("0",res) == 0)
 	{
 		if (param->width > 0)
@@ -122,7 +125,7 @@ void 	parse_int(t_param *param, va_list arg, t_param_len *len_printf)
 			print_space(space, ' ',len_printf);
 			return ;
 		}
-		else if (param->zero == 1)
+		else if (param->zero == 1 && param->point != 0)
 		{
 			print_space(space,'0',len_printf);
 			ft_putstr(res,len_printf);
