@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 22:45:11 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/15 09:11:28 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/15 14:57:30 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		is_check(const char c);
 void	format(const char *s, va_list arg, t_param_len *len_printf);
 void	handle_main(t_param *param, const char **s, va_list arg);
 void  conversion(t_param *param, va_list arg,t_param_len *len_printf);
-void 	parse_int(t_param*param, va_list arg,t_param_len *len_printf);
+void 	print_int(t_param*param, va_list arg,t_param_len *len_printf);
 char	*ft_itoa(int nbr);
 void ft_putstr(char *s,t_param_len *len_printf);
 int	ft_strlen(char *s);

@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 12:08:34 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/11 15:43:09 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/15 14:57:22 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	conversion(t_param *param, va_list arg, t_param_len *len_printf)
 {
 	if (param->conv == 'd' || param->conv == 'i')
 	{
-		parse_int(param, arg, len_printf);
+		print_int(param, arg, len_printf);
 	}
 }

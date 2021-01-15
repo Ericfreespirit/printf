@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 10:19:39 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/15 13:48:34 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/15 14:59:33 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	precision_positive(int zero_precision, int space, char *res, t_param_len *l
 			ft_putstr(res,len_printf);
 			print_space(space,' ',len_printf);
 		}
-		return;
 	}
 	else if (param->minus == 0)
 	{
@@ -47,11 +46,44 @@ void	precision_positive(int zero_precision, int space, char *res, t_param_len *l
 		print_space(space, ' ',len_printf);
 		print_space(zero_precision, '0',len_printf);
 		ft_putstr(res,len_printf);
-		return;
 	}
 }
 
-void 	parse_int(t_param *param, va_list arg, t_param_len *len_printf)
+void res_is_neg(int zero_precision, int space, char *res, t_param_len *len_printf, t_param *param)
+{
+	int	len;
+	len = ft_strlen(res);
+		if (param->point < len && param->point >= 0)
+	{
+		if (param->minus == 1)
+		{
+			ft_putstr(res, len_printf);
+			print_space(space, ' ',len_printf);
+		}
+		else if (param->minus == 0)
+		{
+			print_space(space, ' ',len_printf);
+			ft_putstr(res, len_printf);
+		}
+	}
+	else if (param->minus == 1)
+	{
+		len_printf->len += write(1,"-",1);
+		print_space(zero_precision + 1, '0',len_printf);
+		ft_putstr(&res[1], len_printf);
+		print_space((space - 1) - (zero_precision), ' ',len_printf);
+	}
+	else if(param->minus == 0)
+	{
+		print_space((space - 1) - (zero_precision), ' ',len_printf);
+		len_printf->len += write(1,"-",1);
+		print_space(zero_precision + 1, '0',len_printf);
+		ft_putstr(&res[1], len_printf);
+	}
+}
+
+
+void 	print_int(t_param *param, va_list arg, t_param_len *len_printf)
 {
 	char	*res;
 	int len;
@@ -65,47 +97,13 @@ void 	parse_int(t_param *param, va_list arg, t_param_len *len_printf)
 
 	if (param->zero == 1 && param->minus == 1)
 		param->zero = 0;
-	
-	
+	// ==================== #1 =========================
 	if (res[0] == '-' && (param->point >= len || (param->width > len && param->zero == 1)))
-	{
-		if (param->point < len && param->point >= 0)
-		{
-			if (param->minus == 1)
-			{
-				ft_putstr(res, len_printf);
-				print_space(space, ' ',len_printf);
-			}
-			else if (param->minus == 0)
-			{
-				print_space(space, ' ',len_printf);
-				ft_putstr(res, len_printf);
-			}
-		}
-		else if (param->minus == 1)
-		{
-			len_printf->len += write(1,"-",1);
-			print_space(zero_precision+1, '0',len_printf);
-			ft_putstr(&res[1], len_printf);
-			print_space((space - 1) - (zero_precision), ' ',len_printf);
-			return;
-		}
-		else if(param->minus == 0)
-		{
-			print_space((space - 1) - (zero_precision), ' ',len_printf);
-			len_printf->len += write(1,"-",1);
-			print_space(zero_precision+1, '0',len_printf);
-			ft_putstr(&res[1], len_printf);
-			return;
-		}
-	}
-	
+		res_is_neg(zero_precision, space, res, len_printf, param);
+	// ==================== #2 =========================
 	else if (param->point > 0)
-	{
 	  precision_positive(zero_precision, space, res, len_printf, param);
-		return;
-	}
-	
+	// ==================== #3 =========================
 	else if (param->point == 0 && ft_strcmp("0",res) == 0)
 	{
 		if (param->width > 0)
@@ -116,19 +114,18 @@ void 	parse_int(t_param *param, va_list arg, t_param_len *len_printf)
 		print_space(space, ' ',len_printf);
 		return;
 	}
+	// ==================== #4 =========================
 	else
 	{
 		if (param->minus == 1)
 		{
 			ft_putstr(res,len_printf);
 			print_space(space, ' ',len_printf);
-			return ;
 		}
 		else if (param->zero == 1 && param->point != 0)
 		{
 			print_space(space,'0',len_printf);
 			ft_putstr(res,len_printf);
-			return;
 		}
 		else
 		{
@@ -136,4 +133,5 @@ void 	parse_int(t_param *param, va_list arg, t_param_len *len_printf)
 			ft_putstr(res,len_printf);
 		}
 	}
+	return;
 }

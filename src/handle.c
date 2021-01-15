@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 16:40:04 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/15 13:48:17 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/15 15:01:59 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,7 @@ void handle_precision(t_param *param, char const **s, va_list arg)
 		{
 			param->point = (int) va_arg(arg, int);
 			if (param->point < 0)
-			{
-				//no precision
 				return;
-			}
 			(*s)++;
 		}
 		else if (is_digit(**s))
