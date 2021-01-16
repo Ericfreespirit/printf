@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 19:11:56 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/15 14:58:18 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/16 09:04:47 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ void print_struct(t_param param)
 	printf("width = %d\n", param.width);	
 }
 
-t_param	param_default()
+t_param	*param_default()
 {
-	t_param init_param;
-// TODO malloc protection
-	init_param = (t_param) {
+	t_param *init_param;
+	init_param = malloc(sizeof(t_param));
+	if (init_param == NULL)
+		return(NULL);
+	*init_param = (t_param) {
 		.conv = '0',
 		.minus = 0,
 		.zero = 0,
@@ -37,11 +39,13 @@ t_param	param_default()
 	return (init_param);
 }
 
-t_param_len	param_count()
+t_param_len	*param_count()
 {
-	t_param_len param_len;
-// TODO malloc protection
-	param_len = (t_param_len) {
+	t_param_len *param_len;
+	param_len = malloc(sizeof(t_param_len));
+	if (param_len == NULL)
+		return(NULL);
+ 	*param_len = (t_param_len) {
 		.len = 0,
 	};
 	return (param_len);
@@ -59,7 +63,7 @@ void	format(const char *s, va_list arg, t_param_len *len_printf)
 			s++;
 			if (*s != '\0' && is_check(*s))
 			{
-				param = param_default();
+				param = *param_default();
 				handle_main(&param, &s, arg);
 			  conversion(&param, arg, len_printf);
 			}

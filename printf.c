@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 19:22:13 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/11 14:24:30 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/16 09:04:05 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_printf(const char *s, ...)
 	va_list lst_arg;
 	t_param_len len_printf;
 
-	len_printf = param_count();
+	len_printf = *param_count();
 	va_start(lst_arg, s);
 	format(s, lst_arg, &len_printf);
 	va_end(lst_arg);

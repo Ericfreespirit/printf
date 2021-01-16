@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 22:45:11 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/16 08:30:17 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/16 08:52:28 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void 	print_int(t_param*param, va_list arg,t_param_len *len_printf);
 char	*ft_itoa(int nbr);
 void ft_putstr(char *s,t_param_len *len_printf);
 int	ft_strlen(char *s);
-t_param_len	param_count();
+t_param_len	*param_count();
 char	*ft_strstr(char *str, char *to_find);
 int		ft_strcmp(char *s1, char *s2);
 void	precision_is_positive(int zero_precision, int space, char *res, t_param_len *len_printf, t_param *param);
