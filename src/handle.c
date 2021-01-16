@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 16:40:04 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/16 08:37:57 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/16 09:31:40 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,10 @@ void handle_main(t_param *param, char const **s, va_list arg)
 		}
 		if(**s == '.')
 			handle_precision(param, s, arg);
+
+		if (param->zero == 1 && param->minus == 1)
+			param->zero = 0;
+			
 		if (is_conv(**s))
 		{
 			handle_conv(param, **s);
