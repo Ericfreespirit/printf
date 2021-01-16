@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle.c                                           :+:      :+:    :+:   */
+/*   handle_flag.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/28 16:40:04 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/16 09:31:40 by eriling          ###   ########.fr       */
+/*   Created: 2021/01/16 11:22:08 by eriling           #+#    #+#             */
+/*   Updated: 2021/01/16 11:22:16 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,7 @@ void handle_precision(t_param *param, char const **s, va_list arg)
 		else if (is_digit(**s))
 		{
 			if (**s == '0')
-			{
 				param->point = 0;
-				return;
-			}
 			else
 			{
 				param->point = 0;
@@ -67,7 +64,7 @@ void handle_precision(t_param *param, char const **s, va_list arg)
 			param->point = 0;		
 }
 
-void handle_width(t_param *param, char const **s)
+void handle_width_digit(t_param *param, char const **s)
 {
 	while(**s && is_digit(**s))
 	{
@@ -77,46 +74,30 @@ void handle_width(t_param *param, char const **s)
 	}
 }
 
-void handle_main(t_param *param, char const **s, va_list arg)
+void handle_width_star(t_param *param, va_list arg)
 {
-
-	while(**s && is_check(**s))
-	{		
-		if(**s == '-')
-			param->minus = 1;
-		else if(**s == '0')
-			param->zero = 1;
-		else if(is_digit(**s))
-			handle_width(param, s);
-		else if(**s == '*')
-		{
-			param->width = (int) va_arg(arg,int);
-			if (param->width < 0)
-			{
-				param->width *= -1;
-				param->minus = 1;
-			}
-		}
-		if(**s == '.')
-			handle_precision(param, s, arg);
-
-		if (param->zero == 1 && param->minus == 1)
-			param->zero = 0;
-			
-		if (is_conv(**s))
-		{
-			handle_conv(param, **s);
-			(*s)++;
-			return ;
-		}
-		else if(**s == '%')
-		{
-			param->conv = '%';
-			(*s)++;
-			return ;
-		}
-		if (**s != '\0' && is_check(**s))	
-			(*s)++;
+	param->width = (int) va_arg(arg,int);
+	if (param->width < 0)
+	{
+		param->width *= -1;
+		param->minus = 1;
 	}
-	
+}
+
+void handle_end(t_param *param, char const **s)
+{
+	if (param->zero == 1 && param->minus == 1)
+		param->zero = 0;
+	if (is_conv(**s))
+	{
+		handle_conv(param, **s);
+		(*s)++;
+		return ;
+	}
+	else if(**s == '%')
+	{
+		param->conv = '%';
+		(*s)++;
+		return ;
+	}
 }

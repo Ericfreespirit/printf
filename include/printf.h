@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 22:45:11 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/16 09:10:11 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/16 11:23:17 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ int		is_digit(const char c);
 int		is_check(const char c);
 void	format(const char *s, va_list arg, t_param_len *len_printf);
 void	handle_main(t_param *param, const char **s, va_list arg);
+int handle_conv(t_param *param, char c);
+void handle_end(t_param *param, char const **s);
+void handle_precision(t_param *param, char const **s, va_list arg);
+void handle_width_digit(t_param *param, char const **s);
+void handle_width_star(t_param *param, va_list arg);
+void handle_end(t_param *param, char const **s);
 void  conversion(t_param *param, va_list arg,t_param_len *len_printf);
 void 	print_int(t_param*param, va_list arg,t_param_len *len_printf);
 char	*ft_itoa(int nbr);
