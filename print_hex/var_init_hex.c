@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conversion.c                                       :+:      :+:    :+:   */
+/*   var_init_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/05 12:08:34 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/18 14:08:19 by eriling          ###   ########.fr       */
+/*   Created: 2021/01/18 14:14:53 by eriling           #+#    #+#             */
+/*   Updated: 2021/01/18 14:15:56 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/printf.h"
 
-void	conversion(t_param *param, va_list arg, t_param_len *len_printf)
+void var_init_hex(t_param *param, int *space, int *zero_precision, int len)
 {
-	if (param->conv == 'd' || param->conv == 'i')
-		print_int(param, arg, len_printf);
-	else if (param->conv == 'x' || param->conv == 'X')
-	{
-		print_hex(param, arg, len_printf);
-	}
-	else if (param->conv == 'u')
-	{
-		return;
-	}	
+	if (len > param->width)
+		*space = 0;
+	else
+		*space = param->width - len;
+	if (len > param->point)
+		*zero_precision = 0;
+	else
+		*zero_precision = param->point - len;
 }

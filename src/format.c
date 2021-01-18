@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 19:11:56 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/16 09:10:32 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/18 11:23:53 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ void	format(const char *s, va_list arg, t_param_len *len_printf)
 			len_printf->len += write(1, s, 1);
 
 		if (*s != '\0')
-		s++;
+			s++;
 	}
 }
