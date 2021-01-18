@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 09:36:21 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/18 15:43:48 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/18 17:07:58 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void print_hex(t_param *param, va_list arg, t_param_len *len_printf)
 	res = ft_itoa_base((unsigned int)va_arg(arg, int),16, maj);
 	len = ft_strlen(res);
 	var_init_hex(param, &space, &zero_precision, len);
-	space = 0;
-	zero_precision = 0;
+	//space = 0;
+	//zero_precision = 0;
 	//if (res[0] == '-' && (param->point >= len || (param->width > len && param->zero == 1)))
 		//res_is_neg(zero_precision, space, res, len_printf, param);
 	//else if (param->point > 0)

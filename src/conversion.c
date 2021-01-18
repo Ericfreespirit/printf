@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 12:08:34 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/18 14:08:19 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/18 17:37:08 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	conversion(t_param *param, va_list arg, t_param_len *len_printf)
 {
+	int num;
 	if (param->conv == 'd' || param->conv == 'i')
 		print_int(param, arg, len_printf);
 	else if (param->conv == 'x' || param->conv == 'X')
@@ -22,6 +23,11 @@ void	conversion(t_param *param, va_list arg, t_param_len *len_printf)
 	}
 	else if (param->conv == 'u')
 	{
-		return;
-	}	
+		num = (unsigned int)va_arg(arg, int);
+	}
+	else
+	{
+		num = (unsigned int)va_arg(arg, int);
+	}
+	
 }
