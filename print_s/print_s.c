@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 13:21:27 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/19 14:47:33 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/19 14:57:46 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ void 	print_s(t_param *param, va_list arg, t_param_len *len_printf)
 	char	*res;
 	int len;
 	int space;
-
 	res = (char *)va_arg(arg,char *);
+	if (!res)
+		return;
 	res = ft_strdup(res);
 	len = ft_strlen(res);
 	var_init_char(param,&space,len);
