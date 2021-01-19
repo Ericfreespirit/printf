@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 22:45:11 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/19 09:06:56 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/19 10:36:33 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,14 @@ void print_space(int nb, char c, t_param_len *len_printf);
 void res_is_blank(int space, t_param_len *len_printf, t_param *param);
 void is_else(int space, char *res, t_param_len *len_printf, t_param *param);
 void var_init_int(t_param *param, int *space, int *zero_precision, int len);
+
+void	p_precision_is_positive(int zero_precision, int space, char *res, t_param_len *len_printf, t_param *param);
+void	p_res_is_blank(int zero_precision,int space, t_param_len *len_printf, t_param *param);
+void	p_is_else(int space, char *res, t_param_len *len_printf, t_param *param);
+void 	print_p(t_param *param, va_list arg, t_param_len *len_printf);
+
+
+
 void print_struct(t_param param); // delete
 
 
