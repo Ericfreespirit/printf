@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conversion.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/05 12:08:34 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/19 13:23:51 by eriling          ###   ########.fr       */
+/*   Created: 2021/01/19 13:49:42 by eriling           #+#    #+#             */
+/*   Updated: 2021/01/19 14:49:29 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/printf.h"
 
-void	conversion(t_param *param, va_list arg, t_param_len *len_printf)
+char	*ft_strdup(char *s)
 {
-	int num;
-	if (param->conv == 'd' || param->conv == 'i' ||
-	  param->conv == 'x' || param->conv == 'X'||  param->conv == 'u')
-		print_diuxX(param, arg, len_printf);
-	
-	else if (param->conv == 'p')
-		print_p(param, arg, len_printf);
-	else if (param->conv == 's')
+	int		i;
+	char	*new_s;
+
+	i = 0;
+	while (s[i])
+		i++;
+	if (!(new_s = malloc(sizeof(*new_s) * (i + 1))))
+		return (NULL);
+	new_s[i] = '\0';
+	i = 0;
+	while (s[i])
 	{
-		print_s(param, arg, len_printf);
+		new_s[i] = s[i];
+		i++;
 	}
-	else
-	{
-		num = (unsigned int)va_arg(arg, int);
-	}
-	
+	return (new_s);
 }

@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conversion.c                                       :+:      :+:    :+:   */
+/*   char_precision_is_positive.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/05 12:08:34 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/19 13:23:51 by eriling          ###   ########.fr       */
+/*   Created: 2021/01/15 15:21:15 by eriling           #+#    #+#             */
+/*   Updated: 2021/01/19 14:39:36 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/printf.h"
 
-void	conversion(t_param *param, va_list arg, t_param_len *len_printf)
+void	res_is_minus(int space, char *res, t_param_len *len_printf, t_param *param)
 {
-	int num;
-	if (param->conv == 'd' || param->conv == 'i' ||
-	  param->conv == 'x' || param->conv == 'X'||  param->conv == 'u')
-		print_diuxX(param, arg, len_printf);
-	
-	else if (param->conv == 'p')
-		print_p(param, arg, len_printf);
-	else if (param->conv == 's')
+	int len;
+
+	len = ft_strlen(res);
+	var_init_char(param,&space,len);
+	if (param->minus == 1)
 	{
-		print_s(param, arg, len_printf);
+		ft_putstr(res,len_printf);
+		print_space(space,' ',len_printf);
+		
 	}
-	else
+	else if (param->minus == 0)
 	{
-		num = (unsigned int)va_arg(arg, int);
+		print_space(space, ' ',len_printf);
+		ft_putstr(res,len_printf);
 	}
-	
 }
