@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 12:08:34 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/19 13:23:51 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/19 15:12:45 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	conversion(t_param *param, va_list arg, t_param_len *len_printf)
 	else if (param->conv == 'p')
 		print_p(param, arg, len_printf);
 	else if (param->conv == 's')
-	{
 		print_s(param, arg, len_printf);
-	}
+	else if (param->conv == 'c')
+		print_c(param, arg, len_printf);
 	else
 	{
 		num = (unsigned int)va_arg(arg, int);
