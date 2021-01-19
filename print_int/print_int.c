@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 10:19:39 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/18 14:45:55 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/19 08:35:03 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void 	print_int(t_param *param, va_list arg, t_param_len *len_printf)
 	int space;
 	int	zero_precision;
 
-	res = ft_itoa((int)va_arg(arg, int));
+	res = ft_itoa_base((int)va_arg(arg, int),10,'a');
 	len = ft_strlen(res);
 	var_init_int(param, &space, &zero_precision, len);
 	if (res[0] == '-' && (param->point >= len || (param->width > len && param->zero == 1)))

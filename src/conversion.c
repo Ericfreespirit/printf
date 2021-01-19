@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 12:08:34 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/18 17:37:08 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/19 08:49:04 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	conversion(t_param *param, va_list arg, t_param_len *len_printf)
 	}
 	else if (param->conv == 'u')
 	{
-		num = (unsigned int)va_arg(arg, int);
+		print_unsigned_int(param, arg, len_printf);
 	}
 	else
 	{

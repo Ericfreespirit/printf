@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 22:45:11 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/18 14:46:09 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/19 08:43:38 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ void handle_width_star(t_param *param, va_list arg);
 void handle_end(t_param *param, char const **s);
 void  conversion(t_param *param, va_list arg,t_param_len *len_printf);
 void 	print_int(t_param*param, va_list arg,t_param_len *len_printf);
-char	*ft_itoa(int nbr);
-char	*ft_itoa_base(unsigned int value, int base, char maj);
+char	*ft_itoa_base(long value, int base, char maj);
 void ft_putstr(char *s,t_param_len *len_printf);
 int	ft_strlen(char *s);
 t_param_len	*param_count();
@@ -65,6 +64,7 @@ void is_else(int space, char *res, t_param_len *len_printf, t_param *param);
 void var_init_int(t_param *param, int *space, int *zero_precision, int len);
 void var_init_hex(t_param *param, int *space, int *zero_precision, int len);
 void print_hex(t_param *param, va_list arg, t_param_len *len_printf);
+void print_unsigned_int(t_param *param, va_list arg, t_param_len *len_printf);
 void print_struct(t_param param); // delete
 
 
