@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 15:25:28 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/20 15:45:46 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/20 16:01:20 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	res_is_neg(char *res, t_param_len *len_printf, t_param *param)
 	}
 	else if(param->minus == 0 )
 	{
-		printf("hello\n");
 		print_space((space - 1) - (zero_precision), ' ', len_printf);
 		len_printf->len += write(1, "-", 1);
 		print_space(zero_precision + 1, '0', len_printf);
