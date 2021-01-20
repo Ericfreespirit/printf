@@ -6,14 +6,20 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 15:21:15 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/19 10:56:12 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/20 15:04:55 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/printf.h"
 
-void	p_precision_is_positive(int zero_precision, int space, char *res, t_param_len *len_printf, t_param *param)
+void	p_precision_is_positive(char *res, t_param_len *len_printf, t_param *param)
 {
+	int	zero_precision;
+	int space;
+	int len;
+
+	len = ft_strlen(res);
+	var_init_int(param, &space, &zero_precision, len);
 	space -= 2;
 	if (param->minus == 1)
 	{

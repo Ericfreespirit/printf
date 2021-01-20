@@ -54,16 +54,13 @@ t_param_len	*param_count();
 t_param			*param_default();
 char				*ft_strstr(char *str, char *to_find);
 int					ft_strcmp(char *s1, char *s2);
-void				precision_is_positive(int zero_precision, int space,
-	char *res, t_param_len *len_printf, t_param *param);
-void				res_is_neg(int zero_precision, int space, char *res,
-	t_param_len *len_printf, t_param *param);
+void				precision_is_positive(char *res, t_param_len *len_printf, t_param *param);
+void				res_is_neg(char *res, t_param_len *len_printf, t_param *param);
 void				print_space(int nb, char c, t_param_len *len_printf);
 void				res_is_blank(int space, t_param_len *len_printf, t_param *param);
 void				is_else(int space, char *res, t_param_len *len_printf, t_param *param);
 void				var_init_int(t_param *param, int *space, int *zero_precision, int len);
-void				p_precision_is_positive(int zero_precision, int space,
-	char *res, t_param_len *len_printf, t_param *param);
+void				p_precision_is_positive(char *res, t_param_len *len_printf, t_param *param);
 void				p_res_is_blank(int zero_precision, int space,
 	t_param_len *len_printf, t_param *param);
 void				p_is_else(int space, char *res,
