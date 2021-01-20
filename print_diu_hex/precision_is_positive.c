@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 15:21:15 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/20 11:07:35 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/20 14:46:00 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,22 @@ void	precision_is_positive(int zero_precision, int space, char *res, t_param_len
 	{
 		if (zero_precision > 0)
 		{
-			print_space(zero_precision, '0',len_printf);
-			ft_putstr(res,len_printf);
+			print_space(zero_precision, '0', len_printf);
+			ft_putstr(res, len_printf);
 			space -= zero_precision;
-			print_space(space, ' ',len_printf);
+			print_space(space, ' ', len_printf);
 		}
 		else
 		{
-			ft_putstr(res,len_printf);
-			print_space(space,' ',len_printf);
+			ft_putstr(res, len_printf);
+			print_space(space, ' ', len_printf);
 		}
 	}
 	else if (param->minus == 0)
 	{
 		space -= zero_precision;
-		print_space(space, ' ',len_printf);
-		print_space(zero_precision, '0',len_printf);
-		ft_putstr(res,len_printf);
+		print_space(space, ' ', len_printf);
+		print_space(zero_precision, '0', len_printf);
+		ft_putstr(res, len_printf);
 	}
 }
