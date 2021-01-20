@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 13:49:42 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/20 15:18:07 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/20 15:23:40 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*ft_strdup(char *s)
 		return(NULL);
 	while (s[i])
 		i++;
-	if (!(new_s = malloc(sizeof(*new_s) * (i + 1))))
+	new_s = malloc(sizeof(*new_s) * (i + 1));
+	if (new_s == NULL)
 		return (NULL);
 	new_s[i] = '\0';
 	i = 0;
