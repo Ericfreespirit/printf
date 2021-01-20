@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 09:34:25 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/20 15:05:50 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/20 15:13:44 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 void 	print_p(t_param *param, va_list arg, t_param_len *len_printf)
 {
 	char	*res;
-	int	len;
-	int	space;
-	int	zero_precision;
+	int		len;
+	int		space;
+	int		zero_precision;
 
 	res = ft_itoa_base((unsigned int)va_arg(arg, int), 16, 'a');
 	len = ft_strlen(res);

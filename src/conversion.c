@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 12:08:34 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/20 14:16:03 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/20 15:15:10 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,4 @@ void	conversion(t_param *param, va_list arg, t_param_len *len_printf)
 		print_s(param, arg, len_printf);
 	else if (param->conv == 'c'|| param->conv == '%')
 		print_c_percent(param, arg, len_printf);
-	
 }

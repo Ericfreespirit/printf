@@ -6,14 +6,14 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:21:55 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/19 08:40:37 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/20 15:17:45 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/printf.h"
 
 
-void itoa_base_var_init(long *n, int *sign, int *i, int *base, long *value)
+void	itoa_base_var_init(long *n, int *sign, int *i, int *base, long *value)
 {
 	if(*value < 0)
 		*n = -(long)*value;

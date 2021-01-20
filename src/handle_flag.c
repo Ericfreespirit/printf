@@ -6,13 +6,13 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 11:22:08 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/16 11:22:16 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/20 15:16:39 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/printf.h"
 
-int handle_conv(t_param *param, char c)
+int	handle_conv(t_param *param, char c)
 {
 	if (c == 'c')
 		param->conv = 'c';
@@ -35,36 +35,36 @@ int handle_conv(t_param *param, char c)
 	return (1);
 }
 
-void handle_precision(t_param *param, char const **s, va_list arg)
+void	handle_precision(t_param *param, char const **s, va_list arg)
 {
 	(*s)++;
-		if (**s == '*')
+	if (**s == '*')
+	{
+		param->point = (int) va_arg(arg, int);
+		if (param->point < 0)
+			return;
+		(*s)++;
+	}
+	else if (is_digit(**s))
+	{
+		if (**s == '0')
+			param->point = 0;
+		else
 		{
-			param->point = (int) va_arg(arg, int);
-			if (param->point < 0)
-				return;
-			(*s)++;
-		}
-		else if (is_digit(**s))
-		{
-			if (**s == '0')
-				param->point = 0;
-			else
+			param->point = 0;
+			while(**s && is_digit(**s))
 			{
-				param->point = 0;
-				while(**s && is_digit(**s))
-				{
-					param->point *= 10;
-					param->point += (**s - '0');
-					(*s)++;
-				}
+				param->point *= 10;
+				param->point += (**s - '0');
+				(*s)++;
 			}
 		}
-		else
-			param->point = 0;		
+	}
+	else
+		param->point = 0;		
 }
 
-void handle_width_digit(t_param *param, char const **s)
+void	handle_width_digit(t_param *param, char const **s)
 {
 	while(**s && is_digit(**s))
 	{
@@ -74,9 +74,9 @@ void handle_width_digit(t_param *param, char const **s)
 	}
 }
 
-void handle_width_star(t_param *param, va_list arg)
+void	handle_width_star(t_param *param, va_list arg)
 {
-	param->width = (int) va_arg(arg,int);
+	param->width = (int) va_arg(arg, int);
 	if (param->width < 0)
 	{
 		param->width *= -1;
@@ -84,7 +84,7 @@ void handle_width_star(t_param *param, va_list arg)
 	}
 }
 
-void handle_end(t_param *param, char const **s)
+void	handle_end(t_param *param, char const **s)
 {
 	if (param->zero == 1 && param->minus == 1)
 		param->zero = 0;
