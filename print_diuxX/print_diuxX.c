@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 10:19:39 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/19 09:34:11 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/20 11:08:36 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,17 @@ void 	print_diuxX(t_param *param, va_list arg, t_param_len *len_printf)
 	len = ft_strlen(res);
 	var_init_int(param, &space, &zero_precision, len);
 	if (res[0] == '-' && (param->point >= len || (param->width > len && param->zero == 1)))
+	{
 		res_is_neg(zero_precision, space, res, len_printf, param);
+	}
 	else if (param->point > 0)
+	{
 	  precision_is_positive(zero_precision, space, res, len_printf, param);
+	}
 	else if (param->point == 0 && ft_strcmp("0",res) == 0)
 		res_is_blank(space,len_printf, param);
 	else
+	{
 		is_else(space, res, len_printf, param);
+	}
 }

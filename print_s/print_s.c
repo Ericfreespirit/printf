@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 13:21:27 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/19 14:57:46 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/20 09:30:25 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ void 	print_s(t_param *param, va_list arg, t_param_len *len_printf)
 	int space;
 	res = (char *)va_arg(arg,char *);
 	if (!res)
-		return;
-	res = ft_strdup(res);
+		res = ft_strdup("(null)");
+	else
+		res = ft_strdup(res);
 	len = ft_strlen(res);
 	var_init_char(param,&space,len);
 	if (param->point < len)
@@ -36,5 +37,4 @@ void 	print_s(t_param *param, va_list arg, t_param_len *len_printf)
 	if (param->point == 0)
 		space += len;
 	res_is_minus(space, res, len_printf, param);
-	free(res);
 }

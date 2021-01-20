@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 16:40:04 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/16 11:22:06 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/20 08:25:57 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void handle_main(t_param *param, char const **s, va_list arg)
 {
-	while(**s && is_check(**s))
+	while(**s && (is_check(**s) || **s ==  '%'))
 	{		
 		if(**s == '-')
 			param->minus = 1;

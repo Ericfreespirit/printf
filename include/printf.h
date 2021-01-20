@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 22:45:11 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/19 15:04:35 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/20 10:33:43 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	*ft_strdup(char *s);
 void var_init_char(t_param *param, int *space, int len);
 
 
-void 	print_c(t_param *param, va_list arg, t_param_len *len_printf);
+void 	print_c_percent(t_param *param, va_list arg, t_param_len *len_printf);
 
 
 
