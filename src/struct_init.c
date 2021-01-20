@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 09:09:00 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/16 09:09:23 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/20 14:40:26 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_param	*param_default()
 		.zero = 0,
 		.point = -1,
 		.width = 0,
-		.error = 0,
 	};
 	return (init_param);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_diuxX.c                                      :+:      :+:    :+:   */
+/*   print_diu_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 10:19:39 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/20 12:44:44 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/20 14:14:55 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void res_base(t_param *param,va_list arg, char **res)
 }
 
 
-void 	print_diuxX(t_param *param, va_list arg, t_param_len *len_printf)
+void 	print_diu_hex(t_param *param, va_list arg, t_param_len *len_printf)
 {
 	char	*res;
 	int len;
