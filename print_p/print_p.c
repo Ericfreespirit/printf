@@ -6,14 +6,14 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 09:34:25 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/21 13:26:19 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/21 15:17:24 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/printf.h"
 
-
-void 	print_p(t_param *param, va_list arg, t_param_len *len_printf)
+void 	print_p(t_param *param
+, va_list arg, t_param_len *len_printf)
 {
 	char	*res;
 	int		len;
@@ -24,9 +24,7 @@ void 	print_p(t_param *param, va_list arg, t_param_len *len_printf)
 	len = ft_strlen(res);
 	var_init_int(param, &space, &zero_precision, len);
 	if (ft_strcmp("0", res) == 0)
-	{
-		p_res_is_blank(zero_precision,space,len_printf, param);
-	}
+		p_res_is_blank(zero_precision, space,len_printf, param);
 	else if (param->point > 0)
 	  p_precision_is_positive(res, len_printf, param);
 	else
