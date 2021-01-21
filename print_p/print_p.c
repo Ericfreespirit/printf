@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 09:34:25 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/21 09:31:35 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/21 13:26:19 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,4 @@ void 	print_p(t_param *param, va_list arg, t_param_len *len_printf)
 	else
 		p_is_else(space, res, len_printf, param);
 }
+ 
