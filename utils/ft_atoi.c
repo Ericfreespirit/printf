@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format.c                                           :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/15 19:11:56 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/22 14:05:05 by eriling          ###   ########.fr       */
+/*   Created: 2021/01/22 13:51:26 by eriling           #+#    #+#             */
+/*   Updated: 2021/01/22 14:09:34 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/printf.h"
 
-void	format(const char *s, va_list arg, t_param_len *len_printf)
+int	ft_atoi(const char **str)
 {
-	t_param param;
+	long	sign;
+	long	nb;
 
-	while (*s)
+	sign = 1;
+	nb = 0;
+	while ((**str >= 9 && **str <= 13) || **str == ' ')
+		(*str)++;
+	if (**str == '+' || **str == '-')
 	{
-		if (*s == '%')
-		{
-			s++;
-			if (*s != '\0' && (is_check(*s) || *s == '%'))
-			{
-				param = *param_default();
-				handle_main(&param, &s, arg);
-				conversion(&param, arg, len_printf);
-			}
-		}
-		if (*s != '\0' && *s != '%')
-			len_printf->len += write(1, s, 1);
-		else if (*s == '%')
-			continue;
-		if (*s != '\0')
-			s++;
+		if (**str == '-')
+			sign *= -1;
+		(*str)++;
 	}
+	while (**str && **str >= '0' && **str <= '9')
+	{
+		nb = (nb * 10) + (**str - '0');
+		if (nb < 0 && sign == -1)
+			return (0);
+		else if (nb < 0 && sign == 1)
+			return (-1);
+		(*str)++;
+	}
+	return (nb * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 11:22:08 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/22 09:03:55 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/22 14:15:07 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int		handle_conv(t_param *param, char c)
 
 void	handle_precision(t_param *param, char const **s, va_list arg)
 {
+
 	(*s)++;
 	if (**s == '*')
 	{
@@ -46,20 +47,7 @@ void	handle_precision(t_param *param, char const **s, va_list arg)
 		(*s)++;
 	}
 	else if (is_digit(**s))
-	{
-		if (**s == '0')
-			param->point = 0;
-		else
-		{
-			param->point = 0;
-			while (**s && is_digit(**s))
-			{
-				param->point *= 10;
-				param->point += (**s - '0');
-				(*s)++;
-			}
-		}
-	}
+		param->point = ft_atoi(s);
 	else
 		param->point = 0;
 }
