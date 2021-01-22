@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 15:31:57 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/21 15:13:23 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/22 10:22:20 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ void	p_res_is_blank(int zero_precision
 , int space, t_param_len *len_printf, t_param *param)
 {
 	space -= 2;
-	if (param->minus == 1)
+	if (param->point == 0)
+		ft_putstr("0x", len_printf);
+	else if (param->minus == 1)
 		p_res_is_blank_is_minus(zero_precision, space, len_printf, param);
 	else if (param->minus == 0)
 	{
