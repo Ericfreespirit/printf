@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 22:45:11 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/21 14:04:50 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/22 08:50:15 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@
 # include <stdio.h>
 # include <stdarg.h>
 
-typedef struct s_param
+typedef struct		s_param
 {
 	char	conv;
 	int		minus;
 	int		zero;
 	int		point;
 	int		width;
-}			t_param;
+}					t_param;
 
-typedef struct s_param_len
+typedef struct		s_param_len
 {
 	int	len;
-}			t_param_len;
+}					t_param_len;
 
 int					is_conv(const char c);
 int					is_flag(const char c);
@@ -73,9 +73,9 @@ void				var_init_int(t_param *param, int *space
 void				p_precision_is_positive(char *res
 , t_param_len *len_printf, t_param *param);
 void				p_res_is_blank(int zero_precision, int space
-,	t_param_len *len_printf, t_param *param);
+, t_param_len *len_printf, t_param *param);
 void				p_is_else(int space, char *res
-,	t_param_len *len_printf, t_param *param);
+, t_param_len *len_printf, t_param *param);
 void				print_p(t_param *param, va_list arg
 , t_param_len *len_printf);
 void				print_s(t_param *param, va_list arg

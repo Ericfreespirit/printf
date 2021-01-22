@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 08:34:03 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/20 15:18:13 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/22 09:06:33 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@ int	ft_strlen(char *s)
 	int	i;
 
 	if (!s)
-		return(0);
+		return (0);
 	i = 0;
-	while(s[i])
+	while (s[i])
 		i++;
-	return(i);
+	return (i);
 }

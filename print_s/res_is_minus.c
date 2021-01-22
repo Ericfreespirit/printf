@@ -6,13 +6,14 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 15:21:15 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/20 15:14:41 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/22 08:55:55 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/printf.h"
 
-void	res_is_minus(int space, char *res, t_param_len *len_printf, t_param *param)
+void	res_is_minus(int space, char *res
+, t_param_len *len_printf, t_param *param)
 {
 	int len;
 
@@ -22,7 +23,6 @@ void	res_is_minus(int space, char *res, t_param_len *len_printf, t_param *param)
 	{
 		ft_putstr(res, len_printf);
 		print_space(space, ' ', len_printf);
-		
 	}
 	else if (param->minus == 0)
 	{

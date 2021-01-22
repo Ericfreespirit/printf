@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 16:40:04 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/20 15:16:55 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/22 08:58:59 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void	handle_main(t_param *param, char const **s, va_list arg)
 {
-	while(**s && (is_check(**s) || **s ==  '%'))
-	{		
-		if(**s == '-')
+	while (**s && (is_check(**s) || **s == '%'))
+	{
+		if (**s == '-')
 			param->minus = 1;
-		else if(**s == '0')
+		else if (**s == '0')
 			param->zero = 1;
-		else if(is_digit(**s))
+		else if (is_digit(**s))
 			handle_width_digit(param, s);
-		else if(**s == '*')
+		else if (**s == '*')
 			handle_width_star(param, arg);
-		if(**s == '.')
+		if (**s == '.')
 			handle_precision(param, s, arg);
 		if (is_conv(**s) || **s == '%')
 		{
 			handle_end(param, s);
-			return;
+			return ;
 		}
 		(*s)++;
 	}

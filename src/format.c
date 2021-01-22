@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 19:11:56 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/20 14:18:27 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/22 09:01:03 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,13 @@ void	format(const char *s, va_list arg, t_param_len *len_printf)
 			{
 				param = *param_default();
 				handle_main(&param, &s, arg);
-			  conversion(&param, arg, len_printf);
+				conversion(&param, arg, len_printf);
 			}
 		}
 		if (*s != '\0' && *s != '%')
 			len_printf->len += write(1, s, 1);
 		else if (*s == '%')
 			continue;
-
 		if (*s != '\0')
 			s++;
 	}
