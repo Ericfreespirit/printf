@@ -6,7 +6,7 @@
 #    By: eriling <eriling@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 08:44:26 by eriling           #+#    #+#              #
-#    Updated: 2021/01/22 13:52:24 by eriling          ###   ########.fr        #
+#    Updated: 2021/01/25 13:55:28 by eriling          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,8 +42,6 @@ FILES = printf.c \
 		./utils/ft_strcmp.c \
 		./utils/ft_strlen.c \
 		./utils/ft_atoi.c \
-		./utils/print_struct.c \
-
 
 OBJ=$(FILES:.c=.o)
 
