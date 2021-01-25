@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 10:19:39 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/21 14:49:17 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/25 09:56:44 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,5 @@ void	print_diu_hex(t_param *param, va_list arg, t_param_len *len_printf)
 		res_is_blank(space, len_printf, param);
 	else
 		is_else(space, res, len_printf, param);
+	free(res);
 }

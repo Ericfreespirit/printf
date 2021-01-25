@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 13:21:27 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/22 13:52:40 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/25 10:28:44 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_s(t_param *param, va_list arg, t_param_len *len_printf)
 	char	*res;
 	int		len;
 	int		space;
-	//print_struct(*param);
+	
 	res = (char *)va_arg(arg, char *);
 	if (!res)
 		res = ft_strdup("(null)");
@@ -38,4 +38,5 @@ void	print_s(t_param *param, va_list arg, t_param_len *len_printf)
 	if (param->point == 0)
 		space += len;
 	res_is_minus(space, res, len_printf, param);
+	free(res);
 }

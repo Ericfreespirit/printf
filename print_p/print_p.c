@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 09:34:25 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/22 14:25:59 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/25 09:57:18 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,5 @@ void	print_p(t_param *param
 		p_precision_is_positive(res, len_printf, param);
 	else
 		p_is_else(space, res, len_printf, param);
+	free(res);
 }
