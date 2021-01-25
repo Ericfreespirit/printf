@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 15:21:15 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/25 13:03:32 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/25 13:47:02 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	res_is_minus(int space, char *res
 
 	len = param->point;
 	var_init_char(param, &space, len);
-
 	if (param->minus == 1)
 	{
 		len_printf->len += write(1, res, param->point);

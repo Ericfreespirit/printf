@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 22:45:11 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/25 11:20:58 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/25 13:53:51 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,6 @@ void				var_init_char(t_param *param, int *space, int len);
 void				print_c_percent(t_param *param
 , va_list arg, t_param_len *len_printf);
 int					ft_atoi(const char **str);
-void				print_struct(t_param param);
-int	ft_printf(const char *s, ...);
-
+int					ft_printf(const char *s, ...);
 
 #endif
