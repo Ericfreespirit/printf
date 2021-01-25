@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 15:21:15 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/25 11:30:27 by eriling          ###   ########.fr       */
+/*   Updated: 2021/01/25 13:03:32 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,17 @@ void	res_is_minus(int space, char *res
 {
 	int len;
 
-	len = ft_strlen(res);
+	len = param->point;
 	var_init_char(param, &space, len);
+
 	if (param->minus == 1)
 	{
-		//ft_putstr(res, len_printf);
 		len_printf->len += write(1, res, param->point);
 		print_space(space, ' ', len_printf);
 	}
 	else if (param->minus == 0)
 	{
 		print_space(space, ' ', len_printf);
-		//ft_putstr(res, len_printf);
 		len_printf->len += write(1, res, param->point);
 	}
 }
